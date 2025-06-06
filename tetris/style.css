@@ -1,0 +1,179 @@
+:root {
+    --bg-color: #1a1a2e; /* Azul oscuro */
+    --board-bg-color: #0f0f1c; /* Azul aún más oscuro para el tablero */
+    --text-color: #e0e0e0; /* Gris claro */
+    --accent-color-1: #ff6f61; /* Coral vibrante */
+    --accent-color-2: #8aff8a; /* Verde neón */
+    --accent-color-3: #61b1ff; /* Azul cielo */
+    --accent-color-4: #ffff8a; /* Amarillo brillante */
+    --block-color-1: #ff00ff; /* Magenta */
+    --block-color-2: #00ffff; /* Cian */
+    --block-color-3: #ff8c00; /* Naranja oscuro */
+    --block-color-4: #00ff00; /* Verde brillante */
+    --block-color-5: #ff0000; /* Rojo */
+    --block-color-6: #0000ff; /* Azul */
+    --block-color-7: #ffa500; /* Naranja */
+    --border-color: #555;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+body {
+    font-family: 'Press Start 2P', cursive, monospace; /* Fuente retro */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Evitar scroll en el body */
+}
+
+/* Importar fuente retro (si no tienes una local) */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+.game-container {
+    background-color: var(--board-bg-color);
+    border: 5px solid var(--accent-color-1);
+    box-shadow: 0 0 20px var(--shadow-color);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+
+h1 {
+    color: var(--accent-color-2);
+    text-shadow: 2px 2px 5px var(--shadow-color);
+    margin-bottom: 20px;
+}
+
+.game-area {
+    display: flex;
+    gap: 20px;
+}
+
+#tetrisCanvas {
+    background-color: var(--board-bg-color);
+    border: 3px solid var(--accent-color-3);
+    box-shadow: inset 0 0 10px var(--shadow-color);
+    display: block; /* Eliminar espacio extra */
+}
+
+.sidebar {
+    background-color: var(--bg-color);
+    border: 3px solid var(--accent-color-4);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 8px;
+}
+
+.score-display, .next-piece-display, .controls-info {
+    border-bottom: 2px dashed var(--border-color);
+    padding-bottom: 15px;
+}
+
+.score-display h2, .next-piece-display h2, .controls-info h2 {
+    color: var(--accent-color-1);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+#score, #finalScore {
+    font-size: 2em;
+    color: var(--accent-color-2);
+    text-align: center;
+}
+
+#nextPieceCanvas {
+    background-color: var(--board-bg-color);
+    border: 2px solid var(--accent-color-3);
+    display: block;
+    margin: 0 auto;
+}
+
+.controls-info p {
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin: 5px 0;
+}
+
+button {
+    background-color: var(--accent-color-3);
+    color: var(--bg-color);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--accent-color-2);
+}
+
+/* Game Over Modal */
+.game-over-modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--board-bg-color);
+    border: 5px solid var(--accent-color-1);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 30px var(--shadow-color);
+}
+
+.modal-content h2 {
+    color: var(--accent-color-1);
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.modal-content button {
+    padding: 12px 25px;
+    font-size: 1.5em;
+}
+
+/* Para el scroll de subir y bajar (aunque un Tetris no lo necesita típicamente en su área de juego,
+   si la página es más grande que la ventana, esto lo maneja el body) */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-y: auto; /* Permite scroll vertical si el contenido excede la altura */
+}
+
+/* Estilos para los bloques - estos se usarán en JavaScript para dibujar */
+/* Puedes definir clases CSS aquí si no usas canvas, pero con canvas se dibujan directamente */
+/*
+.block-I { background-color: var(--block-color-1); }
+.block-J { background-color: var(--block-color-2); }
+.block-L { background-color: var(--block-color-3); }
+.block-O { background-color: var(--block-color-4); }
+.block-S { background-color: var(--block-color-5); }
+.block-T { background-color: var(--block-color-6); }
+.block-Z { background-color: var(--block-color-7); }
+*/

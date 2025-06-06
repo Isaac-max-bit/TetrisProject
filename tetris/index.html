@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Retro 80s</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <div class="game-container">
+        <h1>TETRIS RETRO</h1>
+        <div class="game-area">
+            <canvas id="tetrisCanvas" width="300" height="600"></canvas>
+            <div class="sidebar">
+                <div class="score-display">
+                    <h2>Puntuación:</h2>
+                    <p id="score">0</p>
+                </div>
+                <div class="next-piece-display">
+                    <h2>Siguiente:</h2>
+                    <canvas id="nextPieceCanvas" width="120" height="120"></canvas>
+                </div>
+                <div class="controls-info">
+                    <h2>Controles:</h2>
+                    <p>Mover: &larr; &rarr;</p>
+                    <p>Rotar: &uarr; o W</p>
+                    <p>Abajo: &darr; o S</p>
+                    <p>Caída Rápida: Espacio</p>
+                </div>
+                <button id="startButton">Iniciar Juego</button>
+            </div>
+        </div>
+        <div class="game-over-modal" id="gameOverModal">
+            <div class="modal-content">
+                <h2>¡JUEGO TERMINADO!</h2>
+                <p>Tu puntuación final: <span id="finalScore">0</span></p>
+                <button id="restartButton">Volver a Jugar</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
